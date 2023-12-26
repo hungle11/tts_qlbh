@@ -1,4 +1,4 @@
-<!-- <script setup lang="ts">
+<script setup lang="ts">
 import { ref } from 'vue';
 
 interface Product {
@@ -68,4 +68,4 @@ const deleteItem = (index: number) => {
 
 <style scoped>
 /* CSS cho phần template */
-</style> -->
+</style>
