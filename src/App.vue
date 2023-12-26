@@ -1,70 +1,49 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
 
-interface Product {
-  name: string;
-  price: number;
-}
+const products = ref([]);
 
-const data = ref<Product[]>([
-  {
-    name: "products 1",
-    price: 200
-  },
-  {
-    name: "products 2",
-    price: 300
+
+onMounted(async () => {
+  try {
+    const response = await axios.get('http://localhost:3000/products');
+    products.value = response.data;
+  } catch (error) {
+    console.error('Error fetching data:', error);
   }
-]);
-
-const newProduct: Product = {
-  name: '',
-  price: 0
-};
-
-const addItem = () => {
-  if (newProduct.name && newProduct.price) {
-    data.value.push({ ...newProduct });
-    newProduct.name = '';
-    newProduct.price = 0;
-  }
-};
-const deleteItem = (index: number) => {
-  data.value.splice(index, 1);
-};
+});
 </script>
+
 <template>
-  <div>
-    <div>
-      <label for="productName">Tên sản phẩm:</label>
-      <input class="form-control" type="text" id="productName" v-model="newProduct.name" />
-    </div>
-    <div>
-      <label for="productPrice">Giá:</label>
-      <input class="form-control" type="number" id="productPrice" v-model.number="newProduct.price" />
-    </div>
-    <button class="btn btn-primary" @click="addItem">Thêm</button>
-
-    <table class="table table-bordered my-5">
-      <thead>
-        <th>name</th>
-        <th>price</th>
-        <th>Action</th>
-      </thead>
-      <tbody>
-        <tr v-for="(item, index) in data" :key="index">
-          <td>{{ item.name }}</td>
-          <td>{{ item.price }}</td>
-          <td>
-            <button class="btn btn-danger" @click="deleteItem(index)">Xóa</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <table class="table table-bordered">
+    <thead>
+      <th>#</th>
+      <th>Name</th>
+      <th>image</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Category</th>
+      <th>Brand</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
+      <tr v-for="(product, index) in products" :key="index">
+        <td>{{ index + 1 }}</td>
+        <td>{{ product.name }}</td>
+        <td><img :src="product.img" alt="" width="300px"></td>
+        <td>{{ product.description }}</td>
+        <td> {{ product.price }}</td>
+        <td>{{ product.category }}</td>
+        <td>{{ product.brand }}</td>
+        <td class="d-flex flex-row mb-3">
+          <button class="btn btn-danger mx-2">Delete</button>
+          <button class="btn btn-primary">Update</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </template>
-
-
 
 <style scoped>
 /* CSS cho phần template */
