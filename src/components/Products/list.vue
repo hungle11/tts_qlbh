@@ -1,18 +1,43 @@
-<script setup lang="ts">
+<script >
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
 
-const products = ref([]);
+export default {
+    name: 'products',
+    data() {
+        return {
+            products: []
+        }
+    },
+    mounted() {
+        this.getProducts();
+    },
+    methods: {
+        getProducts() {
+            axios.get('http://localhost:3000/products').then(res => {
+                console.log(res);
+                this.products = res.data
+            });
+        },
 
-
-onMounted(async () => {
-    try {
-        const response = await axios.get('http://localhost:3000/products');
-        products.value = response.data;
-    } catch (error) {
-        console.error('Error fetching data:', error);
-    }
-});
+        deleteProduct(productId) {
+            if (confirm('Bạn có muốn xóa không?')) {
+                axios.delete(`http://localhost:3000/products/${productId}`)
+                    .then(res => {
+                        // alert('Bạn đã xóa thành công');
+                        this.getProducts();
+                    })
+                    .catch(function (error) {
+                        if (error.response) {
+                            if (error.response.status == 404) {
+                                alert(error.response.data.message)
+                            }
+                        }
+                    });
+            }
+        },
+    },
+}
 
 </script>
     
@@ -38,8 +63,8 @@ onMounted(async () => {
                 <td>{{ product.category }}</td>
                 <td>{{ product.brand }}</td>
                 <td class="d-flex flex-row mb-3">
-                    <button class="btn btn-danger text-white">Delete</button>
-                    <button class="btn btn-primary mx-2">Update</button>
+                    <button class="btn btn-danger mx-2" @click="deleteProduct(product.id)">Delete</button>
+                    <RouterLink :to="{ path: '/products/' + product.id + '/edit' }"><button class="btn btn-primary">Update</button></RouterLink>
                     <button class="btn btn-warning">Add to cart</button>
                 </td>
             </tr>
