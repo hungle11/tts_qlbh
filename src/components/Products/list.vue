@@ -38,8 +38,9 @@ onMounted(async () => {
                 <td>{{ product.category }}</td>
                 <td>{{ product.brand }}</td>
                 <td class="d-flex flex-row mb-3">
-                    <button class="btn btn-danger mx-2">Delete</button>
-                    <button class="btn btn-primary">Update</button>
+                    <button class="btn btn-danger text-white">Delete</button>
+                    <button class="btn btn-primary mx-2">Update</button>
+                    <button class="btn btn-warning">Add to cart</button>
                 </td>
             </tr>
         </tbody>
