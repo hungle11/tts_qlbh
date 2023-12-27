@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import List from '../components/Products/list.vue';
 import Add from '../components/Products/add.vue';
 
+
 const routes = [
     {
         path: '/',
