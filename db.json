@@ -1,20 +1,11 @@
 {
   "products": [
     {
-      "id": "1",
-      "name": "áo111",
-      "img": "https://bizweb.dktcdn.net/100/415/697/products/ahu2keci-1-iirh-hinh-mat-truoc-01.jpg?v=1657108771117",
-      "description": "Thành phần vải: 100% Cotton Kiểu dáng áo thun phom suông năng động Cổ tròn, tay ngắn đơn giảnThiết kế lấy cảm hứng từ hiệp hội bóng chày MLBHọa tiết ...",
-      "price": "1000000000",
-      "category": "Áo",
-      "brand": "Vải"
-    },
-    {
       "id": "2",
-      "name": "áo222",
+      "name": "áo xịn",
       "img": "https://bizweb.dktcdn.net/100/415/697/products/ahu2keci-1-iirh-hinh-mat-truoc-01.jpg?v=1657108771117",
       "description": "Thành phần vải: 100% Cotton Kiểu dáng áo thun phom suông năng động Cổ tròn, tay ngắn đơn giảnThiết kế lấy cảm hứng từ hiệp hội bóng chày MLBHọa tiết ...",
-      "price": "1000000",
+      "price": 10035441,
       "category": "Áo",
       "brand": "Vải"
     }
