@@ -4,19 +4,19 @@ import Vue from 'vue'
 </script>
 <template>
     <div>
-            <Form class="form">
-                <label for="">Name:</label>
-                 <input type="text">
-                 <label for="">Image:</label>
-                 <input type="text">
-                 <label for="">Description:</label>
-                 <input type="text">
-                 <label for="">Price:</label>
-                 <input type="text">
-                 <label for="">Category:</label>
-                 <input type="text">
-                 <label for="">Brand:</label>
-                 <input type="text">
+            <Form class="form" >
+                <label class="form-label" for="">Name:</label>
+                 <input class="form-control" type="text">
+                 <label class="form-label" for="">Image:</label>
+                 <input class="form-control" type="text">
+                 <label class="form-label" for="">Description:</label>
+                 <input class="form-control" type="text">
+                 <label class="form-label" for="">Price:</label>
+                 <input  class="form-control" type="text">
+                 <label class="form-label" for="">Category:</label>
+                 <input class="form-control" type="text">
+                 <label class="form-label" for="">Brand:</label>
+                 <input class="form-control" type="text">
                  <button class="btn btn-primary">Add</button>
             </Form>
     </div>
