@@ -4,7 +4,7 @@ import Add from '../components/Products/add.vue';
 import Edit from '../components/Products/edit.vue';
 import Signin from '../components/Products/signin.vue';
 import Home from '../pages/Home.vue';
-
+import Detail from '../pages/Detail.vue';
 
 const routes = [
     {
@@ -31,6 +31,11 @@ const routes = [
         path: '/home',
         name: 'Home',
         component: Home
+    },
+    {
+        path: '/detail',
+        name: 'detail',
+        component: Detail
     }
 ];
 
