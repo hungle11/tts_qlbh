@@ -55,15 +55,15 @@ export default {
             <div class="shape"></div>
         </div>
         <form>
-            <h3>SigUp Here</h3>
+            <h3>Login Here</h3>
 
             <div className="mb-3">
                 <label className="form-label">Email</label>
-                <input type="text" className="form-control" v-model="model.user.password" placeholder="Nhập password"
-                    required />
+                <input type="email" className="form-control" v-model="model.user.email" placeholder="Nhập email" required />
             </div>
-               <div className="mb-3">
-                <label className="form-label">Password</label>
+
+            <div className="mb-3">
+                <label className="form-label">Mật khẩu</label>
                 <input type="text" className="form-control" v-model="model.user.password" placeholder="Nhập password"
                     required />
             </div>
