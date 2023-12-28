@@ -10,5 +10,11 @@
       "brand": "Vải"
     }
   ],
-  "users": []
+  "users": [
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$rD0g/IOOUnSKDw834m2jNOfIZpK6NHcz5OL9KPCwhXVJwUt6TiNIS",
+      "id": 1
+    }
+  ]
 }
