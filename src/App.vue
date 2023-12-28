@@ -2,6 +2,7 @@
 // import Vue from 'Vue'
 </script>
 <template>
+<div>
   <div class="bg-black text-white p-3">
     <h3>ADMIN</h3>
   </div>
@@ -39,7 +40,7 @@
                 </router-link>
               </li>
               <li className="nav-item">
-                <router-link to="#">
+                <router-link to="">
 
                   <button class="btn btn-primary my-3" style="width: 200px;"><svg
                       style="align-self: center; margin-right: 5px;" xmlns="http://www.w3.org/2000/svg" width="16"
@@ -51,7 +52,7 @@
                 </router-link>
               </li>
               <li className="nav-item ">
-                <router-link to="#">
+                <router-link to="/signup">
                   <button class="btn btn-primary " style="width: 200px;"><svg
                       style="align-self: center; margin-right: 5px;" xmlns="http://www.w3.org/2000/svg" width="16"
                       height="16" fill="currentColor" class="bi bi-door-open" viewBox="0 0 16 16">
@@ -86,6 +87,7 @@
         <router-view></router-view>
       </main>
     </div>
+  </div>
   </div>
 </template>
 <style scoped>
