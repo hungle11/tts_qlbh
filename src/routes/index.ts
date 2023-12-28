@@ -8,7 +8,7 @@ import Detail from '../pages/Detail.vue';
 
 const routes = [
     {
-        path: '/',
+        path: '/list',
         name: 'List',
         component: List
     },
@@ -23,7 +23,7 @@ const routes = [
         component: Edit
     },
     {
-        path: '/signin',
+        path: '/',
         name: 'Signin',
         component: Signin
     },
