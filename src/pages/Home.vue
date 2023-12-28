@@ -130,7 +130,7 @@ function toggleAnswer(element) {
 
             <div>
                 <img class="img_icon"
-                    src="https://templatemo.com/templates/templatemo_591_villa_agency/assets/images/info-icon-01.png"
+                    src="https://templatemo.com/templates/templatemo_591_villa_agency/assets/images/info-icon-02.png"
                     alt="">
                 <label>
                     <h3>Contract Ready</h3>
@@ -141,7 +141,7 @@ function toggleAnswer(element) {
 
             <div>
                 <img class="img_icon"
-                    src="https://templatemo.com/templates/templatemo_591_villa_agency/assets/images/info-icon-01.png"
+                    src="https://templatemo.com/templates/templatemo_591_villa_agency/assets/images/info-icon-03.png"
                     alt="">
                 <label>
                     <h3>Payment</h3>
@@ -152,7 +152,7 @@ function toggleAnswer(element) {
 
             <div>
                 <img class="img_icon"
-                    src="https://templatemo.com/templates/templatemo_591_villa_agency/assets/images/info-icon-01.png"
+                    src="https://templatemo.com/templates/templatemo_591_villa_agency/assets/images/info-icon-04.png"
                     alt="">
                 <label>
                     <h3>Safety</h3>
