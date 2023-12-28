@@ -2,7 +2,7 @@
 // import Vue from 'Vue'
 </script>
 <template>
-  <div class="bg-black text-white p-3">
+  <!-- <div class="bg-black text-white p-3">
     <h3>ADMIN</h3>
   </div>
   <div className="container-fluid">
@@ -81,12 +81,12 @@
               This week
             </button>
           </div>
-        </div>
-        <!-- Gọi component hiển thị -->
-        <router-view></router-view>
-      </main>
+        </div> -->
+  <!-- Gọi component hiển thị -->
+  <router-view></router-view>
+  <!-- </main>
     </div>
-  </div>
+  </div> -->
 </template>
 <style scoped>
 /* CSS cho phần template */
