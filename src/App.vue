@@ -1,5 +1,5 @@
 <script lang="ts">
-import Vue from 'Vue'
+// import Vue from 'Vue'
 </script>
 <template>
   <router-view></router-view>
