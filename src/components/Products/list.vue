@@ -42,6 +42,7 @@ export default {
 </script>
     
 <template>
+<div>
     <div class="bg-black text-white p-3">
         <h3>ADMIN</h3>
     </div>
@@ -158,5 +159,6 @@ export default {
                 </table>
             </main>
         </div>
+    </div>
     </div>
 </template>

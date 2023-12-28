@@ -46,6 +46,7 @@ export default {
 }
 </script>
 <template>
+<div>
   <div class="bg-black text-white p-3 w-100">
     <h3 style="width: 1487px;">ADMIN</h3>
   </div>
@@ -163,6 +164,7 @@ export default {
         </div>
       </main>
     </div>
+  </div>
   </div>
 </template>
 <style scoped></style>
