@@ -39,7 +39,7 @@
                 </router-link>
               </li>
               <li className="nav-item">
-                <router-link to="#">
+                <router-link to="/signin">
 
                   <button class="btn btn-primary my-3" style="width: 200px;"><svg
                       style="align-self: center; margin-right: 5px;" xmlns="http://www.w3.org/2000/svg" width="16"
