@@ -1,5 +1,49 @@
-<script lang="ts">
+<script>
+import axios from 'axios';
 
+export default {
+    name: 'Edit',
+    data() {
+        return {
+            productID: '',
+            model: {
+                product: {
+                    name: '',
+                    img: '',
+                    description: '',
+                    price: 0,
+                    category: '',
+                    brand: ''
+                }
+            }
+        }
+    },
+    mounted() {
+        this.productID = this.$route.params.id;
+        this.getProductData(this.productID);
+    },
+    methods: {
+        getProductData(productID) {
+            axios.get(`http://localhost:3000/products/${productID}`)
+                .then(res => {
+                    this.model.product = res.data; // Update data with the received product
+                })
+                .catch(err => {
+                    console.error('Error fetching product data:', err);
+                });
+        },
+        // updateProduct() {
+        //     axios.put(`http://localhost:3000/products/${this.productID}`, this.model.product)
+        //         .then(res => {
+        //             console.log(res.data);
+        //             alert('Bạn đã cập nhật thành công');
+        //         })
+        //         .catch(err => {
+        //             console.error('Error updating product:', err);
+        //         });
+        // }
+    }
+}
 </script>
     
 <template>
@@ -33,7 +77,7 @@
 
 
     <div class="container mt-5 d-flex justify-content-center gap-5">
-        <img class="" src="https://templatemo.com/templates/templatemo_591_villa_agency/assets/images/single-property.jpg"
+        <img class="" :src="model.product.image"
             alt="" height="412px">
         <div class="content1_box3 w-25 h-50">
             <div class="align-self-center mt-3">
@@ -87,11 +131,11 @@
         <!-- category sản phẩm -->
         <div
             style="border: orangered 1px solid; border-radius: 5px; background-color: #fbd9cf; width: 100px; padding: 5px; margin-bottom: 20px;">
-            <p style="margin: 0px; padding: 0px;text-align: center;font-weight: 600;">Apparment</p>
+            <p style="margin: 0px; padding: 0px;text-align: center;font-weight: 600;">{{ model.product.category }}</p>
         </div>
         <!-- tên sản phẩm -->
         <div style="display: flex;margin-top: 50px;align-self: center;gap: 240px;">
-            <p style=" font-weight: 700; font-size: 20px;">24 New Street Miami, OR 24560</p>
+            <p style=" font-weight: 700; font-size: 20px;">{{ model.product.name }}</p>
             <div
                 style="border: 1px solid orangered; border-radius: 8px;background-color:#fbd9cf;width: 200px;height: 30px;">
                 <p class="text-center m-0 p-0"><a href="" class="text-decoration-none text-black fw-bold">Add to cart</a>
