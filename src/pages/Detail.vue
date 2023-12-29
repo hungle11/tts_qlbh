@@ -77,8 +77,7 @@ export default {
 
 
     <div class="container mt-5 d-flex justify-content-center gap-5">
-        <img class="" :src="model.product.image"
-            alt="" height="412px">
+        <img class="" :src="model.product.image" alt="" height="412px">
         <div class="content1_box3 w-25 h-50">
             <div class="align-self-center mt-3">
                 <img class="img_icon"

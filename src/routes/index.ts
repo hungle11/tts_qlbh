@@ -6,8 +6,14 @@ import Signin from '../components/Auth/signin.vue';
 import Signup from '../components/Auth/Signup.vue';
 import Home from '../pages/Home.vue';
 import Detail from '../pages/Detail.vue';
+import Cart from '../pages/Cart.vue';
 
 const routes = [
+    {
+        path: '/cart',
+        name: 'Cart',
+        component: Cart
+    },
     {
         path: '/list',
         name: 'List',
