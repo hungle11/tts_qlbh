@@ -1,15 +1,6 @@
 {
   "products": [
     {
-      "id": "2",
-      "name": "áo xịn",
-      "img": "https://bizweb.dktcdn.net/100/415/697/products/ahu2keci-1-iirh-hinh-mat-truoc-01.jpg?v=1657108771117",
-      "description": "Thành phần vải: 100% Cotton Kiểu dáng áo thun phom suông năng động Cổ tròn, tay ngắn đơn giảnThiết kế lấy cảm hứng từ hiệp hội bóng chày MLBHọa tiết ...",
-      "price": 10035441,
-      "category": "Áo",
-      "brand": "Vải"
-    },
-    {
       "id": "6fF-H4n",
       "name": "Áo Polo 2023",
       "image": "https://bizweb.dktcdn.net/100/415/697/products/ahu2keci-1-iirh-hinh-mat-truoc-01.jpg?v=1657108771117",
@@ -42,6 +33,11 @@
       "email": "admin@gmail.com",
       "password": "$2a$10$rD0g/IOOUnSKDw834m2jNOfIZpK6NHcz5OL9KPCwhXVJwUt6TiNIS",
       "id": 1
+    },
+    {
+      "email": "admin1@gmai.com",
+      "password": "$2a$10$ykSGpqmeWrL06SXka3O7kerHZFwH3QKB867y7Cg3JNzDqsGdwW/ju",
+      "id": 2
     }
   ]
 }

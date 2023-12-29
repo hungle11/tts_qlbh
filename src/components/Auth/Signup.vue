@@ -15,11 +15,11 @@ export default {
     },
     methods: {
         signinProduct() {
-            axios.post(`http://localhost:3000/login`, this.model.user)
+            axios.post(`http://localhost:3000/register`, this.model.user)
                 .then(res => {
                     console.log(res.data);
-                    alert('Logged in successfully!');
-                    window.location.href = "http://localhost:5173/home"
+                    alert('Signup in successfully!');
+                    window.location.href = "http://localhost:5173/"
                     // Lưu trữ token vào localStorage hoặc Vuex để sử dụng sau này
                     localStorage.setItem('token', res.data.token);
                     this.model.user = {
@@ -59,7 +59,7 @@ export default {
 
             <div className="mb-3">
                 <label className="form-label">Email</label>
-                <input type="text" className="form-control" v-model="model.user.password" placeholder="Nhập password"
+                <input type="text" className="form-control" v-model="model.user.email" placeholder="Nhập password"
                     required />
             </div>
                <div className="mb-3">
