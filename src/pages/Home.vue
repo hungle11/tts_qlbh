@@ -230,29 +230,34 @@ export default {
     <div class="container text-center">
         <div class="row row-cols-3 justify-content-center gap-5">
             <div v-for="(product, index) in products" :key="index" class="col col1_grid w-auto p-1">
-                <img class="rounded mb-3" :src="product.image" alt="" width="250px">
+                <img class="rounded mb-3" :src="product.image" alt="" width="350px">
                 <div class="d-flex justify-content-between mb-1">
                     <div style="border-radius: 10px; border: black 1px solid; text-align: center; color: white; background-color: orangered; height: 29px;
                 padding: 0 5px;
                 margin-right: 10px;">
-                        <p>Luxury villa</p>
+                        <p>{{ product.category }}</p>
                     </div>
                     <p class="text-xl fw-bold" style="color: orangered;">${{ product.price }}</p>
 
                 </div>
                 <p class="text-xxl fw-bold mb-3 text-start">{{ product.name }}</p>
                 <div class="d-flex gap-3 fw-medium mb-1">
-                    <p>Loại: {{ product.category }}</p>
-                    <p>Thương hiệu: {{ product.brand }}</p>
+                    <p>Brand: {{ product.brand }}</p>
                 </div>
-                <!-- <div class=" d-flex gap-3 fw-medium">
+                <div class=" d-flex gap-3 fw-medium">
                     <p>Area: 450m2</p>
                     <p>Floor: 3</p>
                     <p>Parking: 8 spots</p>
-                </div> -->
+                </div>
                 <hr>
-                <button class="btn mb-3" style="background-color: orangered"><RouterLink :to="{ path: '/detail/' + product.id + '' }"
-                        class="text-decoration-none text-white">Schedule a visit</RouterLink></button>
+                <button class="btn mb-3" style="background-color: orangered">
+                    <RouterLink :to="{ path: '/detail/' + product.id + '' }" class="text-decoration-none text-white">
+                        Schedule a visit</RouterLink>
+                </button>
+
+                <button class="btn mb-3" style="background-color: orangered; margin-left: 5px;">
+                    <RouterLink :to="{ path: '/cart/' }" class="text-decoration-none text-white">Add to cart</RouterLink>
+                </button>
             </div>
             <!-- <div class="col col1_grid w-auto p-1">
                 <img class="rounded mb-3"
