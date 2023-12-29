@@ -72,7 +72,7 @@ export default {
                                 </router-link>
                             </li>
                             <li className="nav-item">
-                                <router-link to="/">
+                                <router-link to="/list">
                                     <button class="btn btn-primary" style="width: 200px;align-self: center;">
                                         <svg style="align-self: center; margin-right: 5px;"
                                             xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -83,7 +83,7 @@ export default {
                                 </router-link>
                             </li>
                             <li className="nav-item">
-                                <router-link to="/signin">
+                                <router-link to="/">
 
                                     <button class="btn btn-primary my-3" style="width: 200px;"><svg
                                             style="align-self: center; margin-right: 5px;"

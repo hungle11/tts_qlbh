@@ -69,7 +69,7 @@ export default {
             </div>
 
             <button type="button" className="btn btn-primary" @click="signinProduct">Submit</button>
-
+            <router-link to="/signup">Signup</router-link>
         </form>
     </body>
 </template>
