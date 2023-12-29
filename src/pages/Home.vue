@@ -1,4 +1,7 @@
-<script lang="ts">
+<script >
+import axios from 'axios';
+import { RouterLink } from 'vue-router';
+
 function toggleAnswer(element) {
     let answer = element.querySelector(".answer");
     let allAnswers = document.querySelectorAll(".answer");
@@ -10,7 +13,27 @@ function toggleAnswer(element) {
         }
     });
 
-    answer.classList.toggle("show-answer"); // Thêm hoặc xoá class "show-answer"
+    answer.classList.toggle("show-answer"); // Thêm hoặc xoá class "show-answer" 
+}
+export default {
+    name: 'products',
+    data() {
+        return {
+            products: []
+        };
+    },
+    mounted() {
+        this.getProducts();
+    },
+    methods: {
+        getProducts() {
+            axios.get('http://localhost:3000/products').then(res => {
+                console.log(res);
+                this.products = res.data;
+            });
+        },
+    },
+    components: { RouterLink }
 }
 
 </script>
@@ -206,34 +229,32 @@ function toggleAnswer(element) {
     <!-- grid products -->
     <div class="container text-center">
         <div class="row row-cols-3 justify-content-center gap-5">
-            <div class="col col1_grid w-auto p-1">
-                <img class="rounded mb-3"
-                    src="https://templatemo.com/templates/templatemo_591_villa_agency/assets/images/property-01.jpg" alt=""
-                    width="auto">
+            <div v-for="(product, index) in products" :key="index" class="col col1_grid w-auto p-1">
+                <img class="rounded mb-3" :src="product.image" alt="" width="250px">
                 <div class="d-flex justify-content-between mb-1">
                     <div style="border-radius: 10px; border: black 1px solid; text-align: center; color: white; background-color: orangered; height: 29px;
                 padding: 0 5px;
                 margin-right: 10px;">
                         <p>Luxury villa</p>
                     </div>
-                    <p class="text-xl fw-bold" style="color: orangered;">$1.180.000</p>
+                    <p class="text-xl fw-bold" style="color: orangered;">${{ product.price }}</p>
 
                 </div>
-                <p class="text-xxl fw-bold mb-3 text-start">54 Mid Street Florida, OR 27001</p>
+                <p class="text-xxl fw-bold mb-3 text-start">{{ product.name }}</p>
                 <div class="d-flex gap-3 fw-medium mb-1">
-                    <p>Bedrooms: 6</p>
-                    <p>Bathrooms: 5</p>
+                    <p>Loại: {{ product.category }}</p>
+                    <p>Thương hiệu: {{ product.brand }}</p>
                 </div>
-                <div class=" d-flex gap-3 fw-medium">
+                <!-- <div class=" d-flex gap-3 fw-medium">
                     <p>Area: 450m2</p>
                     <p>Floor: 3</p>
                     <p>Parking: 8 spots</p>
-                </div>
+                </div> -->
                 <hr>
-                <button class="btn mb-3" style="background-color: orangered"><a href="#"
-                        class="text-decoration-none text-white">Schedule a visit</a></button>
+                <button class="btn mb-3" style="background-color: orangered"><RouterLink :to="{ path: '/detail/' + product.id + '' }"
+                        class="text-decoration-none text-white">Schedule a visit</RouterLink></button>
             </div>
-            <div class="col col1_grid w-auto p-1">
+            <!-- <div class="col col1_grid w-auto p-1">
                 <img class="rounded mb-3"
                     src="https://templatemo.com/templates/templatemo_591_villa_agency/assets/images/property-02.jpg" alt=""
                     width="auto">
@@ -367,7 +388,7 @@ function toggleAnswer(element) {
                 <hr>
                 <button class="btn mb-3" style="background-color: orangered"><a href="#"
                         class="text-decoration-none text-white">Schedule a visit</a></button>
-            </div>
+            </div> -->
         </div>
     </div>
 
