@@ -4,6 +4,7 @@ import Add from '../components/Products/add.vue';
 import Edit from '../components/Products/edit.vue';
 import Signin from '../components/Auth/signin.vue';
 import Signup from '../components/Auth/Signup.vue';
+import ListAcc from '../components/Auth/ListAcc.vue';
 import Home from '../pages/Home.vue';
 import Detail from '../pages/Detail.vue';
 import Cart from '../pages/Cart.vue';
@@ -38,6 +39,11 @@ const routes = [
         path: '/signup',
         name: 'Signup',
         component: Signup
+    },
+    {
+        path: '/acc',
+        name: 'ListAcc',
+        component: ListAcc
     },
     {
         path: '/home',
