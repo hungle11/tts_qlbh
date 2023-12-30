@@ -33,11 +33,6 @@
       "email": "admin@gmail.com",
       "password": "$2a$10$rD0g/IOOUnSKDw834m2jNOfIZpK6NHcz5OL9KPCwhXVJwUt6TiNIS",
       "id": 1
-    },
-    {
-      "email": "admin1@gmai.com",
-      "password": "$2a$10$ykSGpqmeWrL06SXka3O7kerHZFwH3QKB867y7Cg3JNzDqsGdwW/ju",
-      "id": 2
     }
   ]
 }
