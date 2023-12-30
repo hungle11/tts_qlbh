@@ -26,6 +26,15 @@
       "price": "12345",
       "category": "Luxury",
       "brand": "Newseven"
+    },
+    {
+      "id": "2Dwiztv",
+      "name": "New house villa 01",
+      "image": "https://templatemo.com/templates/templatemo_591_villa_agency/assets/images/property-04.jpg",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "price": "1888123",
+      "category": "Luxury",
+      "brand": "house"
     }
   ],
   "users": [
@@ -33,6 +42,11 @@
       "email": "admin@gmail.com",
       "password": "$2a$10$rD0g/IOOUnSKDw834m2jNOfIZpK6NHcz5OL9KPCwhXVJwUt6TiNIS",
       "id": 1
+    },
+    {
+      "email": "hunglq@gmail.com",
+      "password": "$2a$10$8M9i4T18PdtdQZNmjf20u.kdKNw0NZwJP8DkgYUo04wdJtGOOKZeu",
+      "id": 2
     }
   ]
 }

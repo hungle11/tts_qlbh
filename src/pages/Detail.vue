@@ -69,8 +69,8 @@ export default {
         </div>
         <h1 class="text-white text-center mb-5">SINGLE PROPERTY</h1>
         <div class="d-flex justify-content-center flex-row">
-            <marquee behavior="scroll" direction="left" style="color: red; width: 400px;text-align: center;">
-                <h1>24 New Street Miami, OR 24560</h1>
+            <marquee behavior="scroll" direction="left" style="color: red; width: 500px;text-align: center;">
+                <h1>{{ model.product.name }}</h1>
             </marquee>
         </div>
     </div>
@@ -135,11 +135,7 @@ export default {
         <!-- tên sản phẩm -->
         <div style="display: flex;margin-top: 50px;align-self: center;gap: 240px;">
             <p style=" font-weight: 700; font-size: 20px;">{{ model.product.name }}</p>
-            <div
-                style="border: 1px solid orangered; border-radius: 8px;background-color:#fbd9cf;width: 200px;height: 30px;">
-                <p class="text-center m-0 p-0"><a href="" class="text-decoration-none text-black fw-bold">Add to cart</a>
-                </p>
-            </div>
+
         </div>
     </div>
     <hr class="container">

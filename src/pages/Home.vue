@@ -1,40 +1,39 @@
-<script >
+<script setup lang="ts">
+import { ref, onMounted } from 'vue';
 import axios from 'axios';
 import { RouterLink } from 'vue-router';
+import { useRouter } from 'vue-router';
 
-function toggleAnswer(element) {
-    let answer = element.querySelector(".answer");
-    let allAnswers = document.querySelectorAll(".answer");
+const router = useRouter();
 
-    // Đóng tất cả các câu trả lời trước khi mở câu trả lời mới
-    allAnswers.forEach((item) => {
-        if (item !== answer && item.classList.contains("show-answer")) {
-            item.classList.remove("show-answer");
-        }
+
+const products = ref([]);
+const cart = ref([]);
+
+const getProducts = () => {
+    axios.get('http://localhost:3000/products').then(res => {
+        products.value = res.data;
     });
+};
 
-    answer.classList.toggle("show-answer"); // Thêm hoặc xoá class "show-answer" 
-}
-export default {
-    name: 'products',
-    data() {
-        return {
-            products: []
-        };
-    },
-    mounted() {
-        this.getProducts();
-    },
-    methods: {
-        getProducts() {
-            axios.get('http://localhost:3000/products').then(res => {
-                console.log(res);
-                this.products = res.data;
-            });
-        },
-    },
-    components: { RouterLink }
-}
+const addToCart = (product) => {
+    const existingProduct = cart.value.find((item) => item.id === product.id);
+
+    if (existingProduct) {
+        existingProduct.quantity++;
+    } else {
+        cart.value.push({ ...product, quantity: 1 });
+    }
+    localStorage.setItem('cart', JSON.stringify(cart.value)); // Lưu giỏ hàng vào localStorage ngay sau khi thêm sản phẩm
+    router.push({ path: '/cart', query: { cart: JSON.stringify(cart.value) } });
+};
+onMounted(() => {
+    getProducts();
+    const storedCart = JSON.parse(localStorage.getItem('cart'));
+    if (storedCart) {
+        cart.value = storedCart;
+    }
+});
 
 </script>
 <template>
@@ -48,7 +47,11 @@ export default {
                 <a class="mx-3 fw-bold text_menu" href="#">Properties</a>
                 <a class="fw-bold text_menu" href="#">Property Details</a>
                 <a class="mx-3 fw-bold text_menu" href="#">Contact Us</a>
-
+                <a class="fw-bold text_menu" href="./cart"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                        fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                        <path
+                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+                    </svg></a>
             </div>
         </div>
 
@@ -228,7 +231,7 @@ export default {
 
     <!-- grid products -->
     <div class="container text-center">
-        <div class="row row-cols-3 justify-content-center gap-5">
+        <div class="row row-cols-3 ms-5 gap-5">
             <div v-for="(product, index) in products" :key="index" class="col col1_grid w-auto p-1">
                 <img class="rounded mb-3" :src="product.image" alt="" width="350px">
                 <div class="d-flex justify-content-between mb-1">
@@ -255,10 +258,20 @@ export default {
                         Schedule a visit</RouterLink>
                 </button>
 
-                <button class="btn mb-3" style="background-color: orangered; margin-left: 5px;">
+                <!-- <button class="btn mb-3" style="background-color: orangered; margin-left: 5px;">
                     <RouterLink :to="{ path: '/cart/' }" class="text-decoration-none text-white">Add to cart</RouterLink>
+                </button> -->
+
+
+                <button class="btn mb-3"
+                    style="background-color: orangered; margin-left: 5px; color: white; font-weight: 600;"
+                    @click="addToCart(product)">
+                    Add to cart
                 </button>
             </div>
+
+
+
             <!-- <div class="col col1_grid w-auto p-1">
                 <img class="rounded mb-3"
                     src="https://templatemo.com/templates/templatemo_591_villa_agency/assets/images/property-02.jpg" alt=""
@@ -398,6 +411,15 @@ export default {
     </div>
 
 
+
+    <!-- <div class="cart">
+        <h2>Cart</h2>
+        <ul>
+            <li v-for="(item, index) in cart" :key="index">
+                {{ item.name }} - Quantity: {{ item.quantity }}
+            </li>
+        </ul>
+    </div> -->
 
     <div style="background-color: black; color: white;padding: 15px;margin-top: 40px;">
         <p class="container text-center">Copyright © 28/12/2023 Group TTS: LH.VH.MQ Design: LH</p>
