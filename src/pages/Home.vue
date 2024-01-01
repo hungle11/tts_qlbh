@@ -46,7 +46,7 @@ onMounted(() => {
                 <a class="fw-bold text_menu" href="#">Home</a>
                 <a class="mx-3 fw-bold text_menu" href="#">Properties</a>
                 <a class="fw-bold text_menu" href="#">Property Details</a>
-                <a class="mx-3 fw-bold text_menu" href="#">Contact Us</a>
+                <a class="mx-3 fw-bold text_menu" href="/list">Admin</a>
                 <a class="fw-bold text_menu" href="./cart"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                         fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
                         <path

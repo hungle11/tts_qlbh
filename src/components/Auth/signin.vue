@@ -64,7 +64,7 @@ export default {
 
             <div className="mb-3">
                 <label className="form-label">Mật khẩu</label>
-                <input type="text" className="form-control" v-model="model.user.password" placeholder="Nhập password"
+                <input type="password" className="form-control" v-model="model.user.password" placeholder="Nhập password"
                     required />
             </div>
 
