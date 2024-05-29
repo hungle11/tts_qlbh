@@ -1,31 +1,30 @@
-<script >
-import { ref, onMounted } from 'vue';
-import axios from 'axios';
-
+<script lang="ts">
+import Vue from 'vue'
+import axios from 'axios'
 export default {
-    name: 'products',
+    name: "accounts",
     data() {
         return {
-            products: []
+            accounts: []
         }
     },
     mounted() {
-        this.getProducts();
+        this.getAccounts()
     },
     methods: {
-        getProducts() {
-            axios.get('http://localhost:3000/products').then(res => {
-                console.log(res);
-                this.products = res.data
-            });
+        getAccounts() {
+            axios.get('http://localhost:3000/users')
+                .then(res => {
+                    console.log(res)
+                    this.accounts = res.data
+                })
         },
-
-        deleteProduct(productId) {
+        deleteAccount(accountId) {
             if (confirm('Bạn có muốn xóa không?')) {
-                axios.delete(`http://localhost:3000/products/${productId}`)
+                axios.delete(`http://localhost:3000/users/${accountId}`)
                     .then(res => {
                         // alert('Bạn đã xóa thành công');
-                        this.getProducts();
+                        this.getAccounts();
                     })
                     .catch(function (error) {
                         if (error.response) {
@@ -39,8 +38,8 @@ export default {
     },
 }
 
+
 </script>
-    
 <template>
     <div>
         <div class="bg-black text-white p-3">
@@ -96,7 +95,6 @@ export default {
                                 </li>
 
 
-
                             </ul>
                         </div>
                     </div>
@@ -108,6 +106,8 @@ export default {
                         <router-link to="/home">
                             <button class="btn btn-primary  my-3" style="width: 200px;">Website</button>
                         </router-link>
+
+
                         <div className="btn-toolbar mb-2 mb-md-0">
                             <div className="btn-group me-2">
                                 <button type="button" className="btn btn-sm btn-outline-secondary">Share</button>
@@ -123,27 +123,18 @@ export default {
                     <table class="table table-bordered">
                         <thead>
                             <th>#</th>
-                            <th>Name</th>
-                            <th>image</th>
-                            <th>Description</th>
-                            <th>Price</th>
-                            <th>Category</th>
-                            <th>Brand</th>
+                            <th>Email</th>
+                            <th>Password</th>
                             <th>Action</th>
                         </thead>
                         <tbody>
-                            <tr v-for="(product, index) in products" :key="index">
+                            <tr v-for="(account, index) in accounts" :key="index">
                                 <td>{{ index + 1 }}</td>
-                                <td>{{ product.name }}</td>
-                                <td><img :src="product.image" alt="" width="250px"></td>
-                                <td>{{ product.description }}</td>
-                                <td> {{ product.price }}</td>
-                                <td>{{ product.category }}</td>
-                                <td>{{ product.brand }}</td>
+                                <td>{{ account.email }}</td>
+                                <td>{{ account.password }}</td>
                                 <td class="d-flex flex-row mb-3">
-                                    <button class="btn btn-danger mx-2" @click="deleteProduct(product.id)">Delete</button>
-                                    <RouterLink :to="{ path: '/products/' + product.id + '/edit' }"><button
-                                            class="btn btn-primary">Update</button></RouterLink>
+                                    <button class="btn btn-danger mx-2" @click="deleteAccount(account.id)">Delete</button>
+
                                 </td>
                             </tr>
                         </tbody>
